@@ -1,0 +1,217 @@
+body {
+    background: linear-gradient(135deg, #181c24 0%, #232b3a 100%);
+    color: #e0e6f0;
+    font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
+    margin: 0;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #181c24;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #2e3547;
+    box-shadow: 0 2px 12px #000a 0.5;
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #7ee787;
+    text-shadow: 0 0 8px #7ee78744;
+}
+
+header .ai {
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff99;
+}
+
+#addWindow {
+    background: linear-gradient(90deg, #00eaff 0%, #7ee787 100%);
+    color: #181c24;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00eaff55;
+    transition: background 0.2s, color 0.2s;
+}
+#addWindow:hover {
+    background: linear-gradient(90deg, #7ee787 0%, #00eaff 100%);
+    color: #232b3a;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.code-window {
+    background: #232b3a;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #00eaff22, 0 1.5px 0 #7ee78733;
+    width: 480px;
+    max-width: 95vw;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    position: relative;
+}
+
+.code-window:focus-within {
+    box-shadow: 0 0 0 2px #00eaff, 0 4px 32px #00eaff44;
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    background: #181c24;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #2e3547;
+    gap: 0.7rem;
+}
+
+.lang-select {
+    background: #232b3a;
+    color: #7ee787;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.copy-btn, .preview-btn, .remove-btn {
+    background: #232b3a;
+    color: #00eaff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.9rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 0.2rem;
+    transition: background 0.2s, color 0.2s;
+}
+.copy-btn:hover, .preview-btn:hover {
+    background: #00eaff;
+    color: #232b3a;
+}
+.remove-btn {
+    color: #ff4b6e;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: auto;
+}
+.remove-btn:hover {
+    background: #ff4b6e;
+    color: #fff;
+}
+
+.code-block {
+    margin: 0;
+    padding: 1.2rem 1rem 1rem 1rem;
+    background: #232b3a;
+    min-height: 180px;
+    max-height: 320px;
+    overflow: auto;
+    font-size: 1.05rem;
+    border-bottom: 1px solid #2e3547;
+    outline: none;
+}
+
+.code-block[contenteditable="true"]:focus {
+    box-shadow: 0 0 0 2px #00eaff;
+}
+
+.preview-area {
+    background: #181c24;
+    color: #e0e6f0;
+    min-height: 80px;
+    max-height: 300px;
+    overflow: auto;
+    padding: 1rem;
+    font-family: inherit;
+    border-top: 1px solid #2e3547;
+    display: none;
+}
+
+.preview-area.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Prism.js overrides for extra glow/futuristic look */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #7ee78799;
+}
+
+.token.punctuation {
+    color: #00eaff;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #ff4b6e;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #7ee787;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #00eaff;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ffb86c;
+}
+
+.token.function,
+.token.class-name {
+    color: #00eaff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #232b3a;
+}
+::-webkit-scrollbar-thumb {
+    background: #00eaff33;
+    border-radius: 8px;
+}
